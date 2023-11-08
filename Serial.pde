@@ -55,7 +55,7 @@ void parse_buffer(){
   
   switch(id){
     case(0x766):
-      println("VCU");
+//println("VCU");
       apps1.percentage = data(1);
       apps2.percentage = data(2);
       brake.percentage = data(3);;
@@ -65,11 +65,11 @@ void parse_buffer(){
       motor_temp = (256*data(5) + data(4))/10;
       break;
     case(0x500):
-      print("FWS");
-      front_rads = (data(1) + 256*data(0))*3*60/5280;  //turn to mph
+      //print("FWS");
+      front_rads = (data(1) + 256*data(0));//*3*60/5280;  //turn to mph
       break;
     case(0x401):
-      print("air temp");
+      //print("air temp");
       mc_air_in_temp = data(0);
       mc_air_out_temp = data(1);
       mtr_air_in_temp = data(2);
@@ -92,15 +92,20 @@ void parse_buffer(){
       mtr_out_psi = data(7);
       break;
     case(0x0A0):
-      mc_tempa = data(0) + 256*data(1);
-      mc_tempb = data(2) + 256*data(3);
-      mc_tempc = data(4) + 256*data(5);
-      mc_temp_gate = data(6) + 256*data(7);
+      mc_tempa = (data(0) + 256*data(1))/10;
+      mc_tempb = (data(2) + 256*data(3))/10;
+      mc_tempc = (data(4) + 256*data(5))/10;
+      mc_temp_gate = (data(6) + 256*data(7))/10;
       break;
     case(0x380):
       bms_voltage = (256*data(4) + data(5))/100;
+      bms_soc = data(1);
       bms_temp = data(0);
       bms_status = 256*data(2) + data(3);
+      break;
+    case(0x050):
+      println(str(data(0)));
+      break;
   }
 }
 

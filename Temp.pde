@@ -12,10 +12,10 @@ int mtr_in_psi = 0;
 int mtr_out_psi = 0;
 int mc_in_psi = 0;
 int mc_out_psi = 0;
-int mc_tempa = 0;
-int mc_tempb = 0;
-int mc_tempc = 0; 
-int mc_temp_gate = 0;
+float mc_tempa = 0;
+float mc_tempb = 0;
+float mc_tempc = 0; 
+float mc_temp_gate = 0;
 int bms_temp = 0;
-
+int bms_soc = 0;
   

@@ -1,4 +1,4 @@
-import java.util.Arrays;
+ import java.util.Arrays;
 import processing.serial.*;
 
 Sensor apps1 = new Sensor("APPS1");
@@ -45,6 +45,7 @@ void draw(){
   text("FWS: " + str(front_rads) + "mph", 20, 420);
   text("RWS: " + str(rear_rads), 20, 440);
   text("BMS Temp: " + str(bms_temp) + "C", 20, 460);
+  text("BMS SOC: " + str(bms_soc) + "%", 20, 480);
   
   
 }
